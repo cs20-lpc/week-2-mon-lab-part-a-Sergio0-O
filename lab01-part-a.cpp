@@ -15,7 +15,7 @@ void printFoods(string*, const unsigned);
  * Description:
  * Starting point of the program. Creates a dynamic array of strings. User gets
  * to specify their desired size. Calls functions. Releases dynamic memory.
- * 
+ *
  * Input:
  * N/A
  *
@@ -34,7 +34,8 @@ int main() {
         cout << "Enter your desired array size: ";
         cin >> userSize;
     } while (userSize > 10);
-
+    cout << endl;
+    dynArr = new string[userSize];
     // TODO: create the dynamic memory
 
     // call the functions
@@ -42,15 +43,15 @@ int main() {
     printFoods(dynArr, userSize);
 
     // TODO: release the dynamic memory to avoid a memory leak
-
+    delete[] dynArr;
     // terminate
     return 0;
 }
 
-/*******************************************************************************
+/*******`************************************************************************
  * Description:
  * Gets data from the user to populate the array pointed to by `arrPtr`.
- * 
+ *
  * Input:
  * arrPtr   - a pointer to the beginning of a string array
  * ARR_SIZE - a constant unsigned integer containing the size of the array
@@ -61,14 +62,24 @@ int main() {
 *******************************************************************************/
 
 void populate(string* arrPtr, const unsigned ARR_SIZE) {
-    // TODO
+
+	cin.ignore();
+	for (unsigned i = 0; i < ARR_SIZE; i++)
+	{
+
+	cout << "Enter the food order #" << i + 1 << ": ";
+	getline(cin, arrPtr[i]);
+
+
+	}
+	cout << endl;
 }
 
 /*******************************************************************************
  * Description:
  * Displays the information stored in the array pointed to by `arrPtr`. Also
  * prints what memory address each element is stored in.
- * 
+ *
  * Input:
  * arrPtr   - a pointer to the beginning of a string array
  * ARR_SIZE - a constant unsigned integer containing the size of the array
@@ -80,4 +91,17 @@ void populate(string* arrPtr, const unsigned ARR_SIZE) {
 
 void printFoods(string* arrPtr, const unsigned ARR_SIZE) {
     // TODO
+
+		for (unsigned i = 0; i < ARR_SIZE ; i++)
+		{
+		cout << "food order #" << i + 1 << endl;
+		cout << arrPtr[i] << endl;
+
+		cout << "(Sent from address) " <<  &arrPtr[i] << endl;
+
+		cout << endl;
+
+
+		}
+
 }
