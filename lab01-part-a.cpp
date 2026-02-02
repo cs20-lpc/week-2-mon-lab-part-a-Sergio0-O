@@ -35,8 +35,9 @@ int main() {
         cin >> userSize;
     } while (userSize > 10);
     cout << endl;
+	// TODO: create the dynamic memory
     dynArr = new string[userSize];
-    // TODO: create the dynamic memory
+    
 
     // call the functions
     populate(dynArr, userSize);
@@ -105,3 +106,4 @@ void printFoods(string* arrPtr, const unsigned ARR_SIZE) {
 		}
 
 }
+
